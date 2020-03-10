@@ -1,0 +1,12 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+$primary: #788921;
+$primary-invert: findColorInvert($primary);
+
+$colors: (
+  "primary": ($primary, $primary-invert)
+);
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
