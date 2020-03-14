@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axiosInst from '../utils/http.js'
+import axiosInst from '@/utils/http.js'
 
 export default {
   data: () => ({
