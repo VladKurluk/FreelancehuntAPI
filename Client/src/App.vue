@@ -24,10 +24,10 @@ export default {
         title: 'Freelancehunt',
         icon: 'fa fa-chart-area',
         child: [
-          // {
-          //   href: '/charts/sublink',
-          //   title: 'Sub Link'
-          // }
+          {
+            href: '/frelance_api/freelancers',
+            title: 'Freelancers list'
+          }
         ]
       }
     ]

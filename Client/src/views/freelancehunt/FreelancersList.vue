@@ -4,10 +4,10 @@
     <div class="columns">
       <div class="column is-6">
         <div v-if="data.length !== 0" class="card">
-          <div class="card-image">
-            <!-- <figure class="image is-4by3">
+          <!-- <div class="card-image">
+            <figure class="image is-4by3">
               <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure> -->
+            </figure>
           </div>
           <div class="card-content">
             <div class="media">
@@ -28,13 +28,13 @@
               <br>
               <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
             </div>
-          </div>
+          </div> -->
+          {{ data }}
         </div>
         <b-loading v-else :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="false"></b-loading>
       </div>
     </div>
   </div>
-  <router-view />
 </div>
 </template>
 
@@ -42,6 +42,7 @@
 import axiosInst from '@/utils/http.js'
 
 export default {
+  name: 'FreelancersList',
   data: () => ({
     data: [],
     isLoading: true,
@@ -49,7 +50,7 @@ export default {
   }),
   methods: {
     getProfileData () {
-      axiosInst.get('curent_profile')
+      axiosInst.get('freelancers')
         .then(response => (this.data = response.data))
     }
   },
