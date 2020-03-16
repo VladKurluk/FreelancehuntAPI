@@ -3,7 +3,7 @@
 Из пакета freelance_api импортируеться экземпляр Flask приложения, и запускаеться.
 '''
 
-from freelance_api import create_app
+from application import create_app
 
 app = create_app('development')
 

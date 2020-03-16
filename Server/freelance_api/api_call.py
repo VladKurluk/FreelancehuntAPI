@@ -19,3 +19,14 @@ def get_profile():
         return response.json()
     else:
         return {'error': 'Ошибка обращения к API'}
+
+def get_freelancers():
+    url = "https://api.freelancehunt.com/v2/freelancers?filter[skill_id]=124"
+    payload = {}
+    headers = REQUEST_HEADER
+    response = requests.request("GET", url, headers=headers, data = payload)
+
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return {'error': 'Ошибка обращения к API'}
