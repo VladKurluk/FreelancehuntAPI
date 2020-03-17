@@ -29,6 +29,11 @@ export default {
             title: 'Freelancers list'
           }
         ]
+      },
+      {
+        href: '/parser',
+        title: 'Parsing',
+        icon: 'fa fa-user'
       }
     ]
   })

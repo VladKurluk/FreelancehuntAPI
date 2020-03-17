@@ -5,4 +5,8 @@ const axiosInst = axios.create({
   timeout: 1000
 })
 
-export default axiosInst
+const axiosParserInst = axios.create({
+  baseURL: 'http://127.0.0.1:5000/'
+})
+
+export { axiosInst, axiosParserInst }
