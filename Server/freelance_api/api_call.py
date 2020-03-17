@@ -1,6 +1,6 @@
-'''
+"""
 Здесь находяться функции обращения к Фрилансхант API для получения данных.
-'''
+"""
 
 from freelance_api.token import token
 import requests
@@ -18,7 +18,9 @@ def get_profile():
     if response.status_code == 200:
         return response.json()
     else:
+        print(response.text.encode('utf8'))
         return {'error': 'Ошибка обращения к API'}
+
 
 def get_freelancers():
     url = "https://api.freelancehunt.com/v2/freelancers?filter[skill_id]=124"
