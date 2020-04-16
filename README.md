@@ -70,6 +70,6 @@ python run.py
 token = 'Bearer ваш токен здесь'
 ```
 
-![](//token.png)
+![](https://github.com/VladKurluk/FreelancehuntAPI/blob/master/token.png)
 
 
