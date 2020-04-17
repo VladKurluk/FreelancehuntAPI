@@ -30,11 +30,13 @@
               </div>
             </div>
           </div>
-          <b-loading v-else :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="false"></b-loading>
+          <!-- <b-loading v-else :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="false"></b-loading> -->
         </div>
 
-        <div class="column is-6">
-          <div v-if="data.length !== 0" class="card">
+        <feed-list></feed-list>
+
+        <!-- <div class="column is-6">
+          <div v-if="feed.length !== 0" class="card">
             <div class="card-content">
               <div class="media">
                 <div class="media-left">
@@ -45,7 +47,7 @@
                 <div class="media-content">
                   <p class="title is-4">{{`${data.data.attributes.first_name} ${data.data.attributes.last_name}`}}</p>
                   <p class="subtitle is-6">{{`${data.data.type}`}}</p>
-                  <!-- <p class="subtitle is-6"><a :href="data.data.links.self.web" target="_blank">Смотреть профиль на Freelancehunt</a></p> -->
+                  <p class="subtitle is-6"><a :href="data.data.links.self.web" target="_blank">Смотреть профиль на Freelancehunt</a></p>
                 </div>
               </div>
 
@@ -61,7 +63,7 @@
             </div>
           </div>
           <b-loading v-else :is-full-page="isFullPage" :active.sync="isLoading" :can-cancel="false"></b-loading>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -71,8 +73,12 @@
 
 <script>
 import { axiosInst } from '@/utils/http.js'
+import FeedList from '@/components/Feed'
 
 export default {
+  components: {
+    FeedList
+  },
   data: () => ({
     data: [],
     isLoading: true,
@@ -82,6 +88,10 @@ export default {
     async getProfileData () {
       await axiosInst.get('curent_profile')
         .then(response => (this.data = response.data))
+    },
+    async getFeedData () {
+      await axiosInst.get('my_feed')
+        .then(response => (this.feed = response.data.data))
     }
   },
   async created () {

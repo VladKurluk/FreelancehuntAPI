@@ -3,16 +3,18 @@ API ендпоинты для передачи данных полученых �
 '''
 
 from flask import Blueprint
-from freelance_api.api_call import get_profile, get_freelancers
+from freelance_api.api_call import *
 
 api = Blueprint('api', __name__)
 
 @api.route('/curent_profile')
 def profile():
-    res = get_profile()
-    return res
+    return get_profile()
 
 @api.route('/freelancers')
 def freelancers_list():
-    res = get_freelancers()
-    return res
+    return get_freelancers()
+
+@api.route('/my_feed')
+def feed_list():
+    return get_my_feed()
