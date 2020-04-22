@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import FrL from '../views/freelancehunt/FreelancersList.vue'
 
 Vue.use(VueRouter)
 
@@ -12,26 +11,22 @@ const routes = [
     component: Home
   },
   {
-    path: '/frelance_api',
-    name: 'frelanceApi',
+    path: '/profile',
+    name: 'profile',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/freelancehunt/Profile.vue'),
-    children: [
-      {
-        path: 'freelancers',
-        component: FrL
-      }
-    ]
+    component: () => import(/* webpackChunkName: "profile" */ '../views/freelancehunt/Profile.vue')
+  },
+  {
+    path: '/all_frelancers',
+    name: 'frelancersList',
+    component: () => import(/* webpackChunkName: "frelancersList" */ '../views/freelancehunt/FreelancersList.vue')
   },
   {
     path: '/parser',
     name: 'parser',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/parser/ParsingList.vue')
+    component: () => import(/* webpackChunkName: "parser" */ '../views/parser/ParsingList.vue')
   }
 ]
 
