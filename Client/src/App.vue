@@ -17,23 +17,24 @@ export default {
       {
         href: '/',
         title: 'Home Page',
-        icon: 'fa fa-user'
+        icon: 'fa fa-chart-area'
       },
       {
-        href: '/frelance_api',
-        title: 'Freelancehunt',
-        icon: 'fa fa-chart-area',
+        href: '/profile',
+        title: 'Profile',
+        icon: 'fa fa-user',
         child: [
           {
-            href: '/frelance_api/freelancers',
-            title: 'Freelancers list'
+            href: '/all_frelancers',
+            title: 'Freelancers list',
+            icon: 'fas fa-users'
           }
         ]
       },
       {
         href: '/parser',
         title: 'Parsing',
-        icon: 'fa fa-user'
+        icon: 'fas fa-server'
       }
     ]
   })
