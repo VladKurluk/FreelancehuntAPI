@@ -32,8 +32,8 @@ export default {
         ]
       },
       {
-        href: '/parser',
-        title: 'Parsing',
+        href: '/freelance_ua',
+        title: 'Парсер Фриланс.юа',
         icon: 'fas fa-server'
       }
     ]

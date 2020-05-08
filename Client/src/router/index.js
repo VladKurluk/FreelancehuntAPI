@@ -24,7 +24,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "frelancersList" */ '../views/freelancehunt/FreelancersList.vue')
   },
   {
-    path: '/parser',
+    path: '/freelance_ua',
     name: 'parser',
     component: () => import(/* webpackChunkName: "parser" */ '../views/parser/ParsingList.vue')
   }

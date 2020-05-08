@@ -10,3 +10,16 @@ $colors: (
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+
+.buttons-category {
+  margin-top: 10px;
+}
+
+.frelanceua-logo {
+  width: 160px;
+  height: 60px;
+}
+
+.parse-btn {
+  margin-top: 2rem;
+}
