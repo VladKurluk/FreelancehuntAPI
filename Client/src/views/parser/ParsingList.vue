@@ -63,7 +63,7 @@
                 {{ props.row.id }}
               </b-table-column>
 
-              <b-table-column field="title" label="Заголовок" sortable>
+              <b-table-column field="title" label="Заголовок" width="400">
                 <template v-if="showDetailIcon">
                   <a :href="props.row.link" target="_blank">
                     {{ props.row.title }}
@@ -108,6 +108,12 @@
               <b-table-column field="offers" label="Кол-во откликов" sortable>
                 {{  props.row.offers }}
               </b-table-column>
+
+              <b-table-column label="Действия">
+                <b-tooltip label="В избранное" type="is-info">
+                  <b-button type="is-success" icon-right="star" @click="save(props.row)"/>
+                </b-tooltip>
+              </b-table-column>
             </template>
 
             <template slot="detail" slot-scope="props">
@@ -138,33 +144,37 @@
 </template>
 
 <script>
-import { axiosParserInst } from '@/utils/http.js'
-
 export default {
   name: 'FreelanceUa',
   data: () => ({
-    data: [],
     category: '',
     pageCount: 0,
     parseProgress: false,
     defaultOpenedDetails: [0],
     showDetailIcon: true
   }),
+  computed: {
+    data () {
+      return this.$store.state.parser.parsingResult
+    }
+  },
   methods: {
-    async getProfileData (category, page) {
-      await axiosParserInst.post('freelance_ua', {
-        category: category,
-        page: page
-      })
-        .then(response => (this.data = response.data))
-    },
     async parsing () {
       this.parseProgress = true
-      await this.getProfileData(this.category, this.pageCount)
+      await this.$store.dispatch('getProfileData', {
+        category: this.category,
+        page: this.pageCount
+      })
       this.parseProgress = false
     },
     toggle (row) {
       this.$refs.table.toggleDetails(row)
+    },
+    save (row) {
+      this.$buefy.notification.open({
+        message: `Заказ "${row.title}" добавлен в избранное!`,
+        type: 'is-success'
+      })
     }
   }
 }
