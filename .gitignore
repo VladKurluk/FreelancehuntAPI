@@ -8,7 +8,7 @@ node_modules
 # local env files
 .env.local
 .env.*.local
-package-lock.json
+Client/package-lock.json
 
 # Log files
 npm-debug.log*
@@ -26,3 +26,6 @@ yarn-error.log*
 
 # Token for Freelancehunt API
 Server/freelance_api/token.py
+
+# Database
+parser_app.db
