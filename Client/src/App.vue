@@ -1,43 +1,26 @@
 <template>
   <div id="app">
-    <sidebar-menu :menu="menu" />
-    <router-view/>
+    <component :is='layout'>
+      <router-view/>
+    </component>
   </div>
 </template>
 
 <script>
+import AuthLayout from '@/layouts/Auth'
+import MainLayout from '@/layouts/Main'
 export default {
-  data: () => ({
-    menu: [
-      {
-        header: true,
-        title: 'Navigation',
-        hiddenOnCollapse: true
-      },
-      {
-        href: '/',
-        title: 'Home Page',
-        icon: 'fa fa-chart-area'
-      },
-      {
-        href: '/profile',
-        title: 'Profile',
-        icon: 'fa fa-user',
-        child: [
-          {
-            href: '/all_frelancers',
-            title: 'Freelancers list',
-            icon: 'fas fa-users'
-          }
-        ]
-      },
-      {
-        href: '/freelance_ua',
-        title: 'Парсер Фриланс.юа',
-        icon: 'fas fa-server'
-      }
-    ]
-  })
+  data: () => ({}),
+  components: {
+    AuthLayout,
+    MainLayout
+  },
+  computed: {
+    layout () {
+      // console.log(this.$route.meta)
+      return (this.$route.meta.layout || 'auth') + '-layout'
+    }
+  }
 }
 </script>
 
