@@ -1,4 +1,5 @@
 from peewee import *
+import datetime
 
 db = SqliteDatabase('parser_app.db', pragmas={
     'journal_mode': 'wal',
@@ -9,7 +10,12 @@ db = SqliteDatabase('parser_app.db', pragmas={
 
 class User(Model):
     name = CharField()
-    login = CharField()
+    email = CharField()
+    password = TextField()
+    join_date = DateTimeField(default=datetime.datetime.now)
+
+    def to_dict(self):
+        return dict(id=self.id, email=self.email)
 
     class Meta:
         database = db
@@ -18,4 +24,5 @@ class User(Model):
 
 def create_tables():
     with db:
+        db.drop_tables([User])
         db.create_tables([User])
