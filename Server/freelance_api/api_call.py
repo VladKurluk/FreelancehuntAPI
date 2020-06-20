@@ -2,11 +2,17 @@
 Здесь находяться функции обращения к Фрилансхант API для получения данных.
 """
 
-from freelance_api.token import token
+from os import environ
 import requests
 
+'''
+Токен для доступа к Фрилансхант API
+'''
+FREELANCEHUNT_API_KEY = environ.get('FREELANCEHUNT_API_KEY')
+
+
 REQUEST_HEADER = {
-    'Authorization': token
+    'Authorization': 'Bearer ' + str(FREELANCEHUNT_API_KEY)
 }
 
 PROFILE_URL = "https://api.freelancehunt.com/v2/my/profile"
