@@ -8,6 +8,7 @@ click==7.1.1
 Flask==1.1.1
 Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.8
+Flask-JWT-Extended==3.24.1
 Flask-RESTful==0.3.8
 idna==2.9
 itsdangerous==1.1.0
@@ -15,6 +16,7 @@ Jinja2==2.11.1
 MarkupSafe==1.1.1
 peewee==3.13.3
 pycparser==2.20
+PyJWT==1.7.1
 python-dotenv==0.13.0
 pytz==2020.1
 requests==2.23.0

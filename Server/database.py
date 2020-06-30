@@ -1,5 +1,4 @@
-from peewee import *
-import datetime
+from peewee import SqliteDatabase
 
 db = SqliteDatabase('parser_app.db', pragmas={
     'journal_mode': 'wal',
@@ -8,21 +7,9 @@ db = SqliteDatabase('parser_app.db', pragmas={
     'ignore_check_constraints': 0,
     'synchronous': 0})
 
-class User(Model):
-    name = CharField()
-    email = CharField()
-    password = TextField()
-    join_date = DateTimeField(default=datetime.datetime.now)
-
-    def to_dict(self):
-        return dict(id=self.id, email=self.email)
-
-    class Meta:
-        database = db
-        table_name = "Users"
-
+from api.models import User
 
 def create_tables():
     with db:
-        db.drop_tables([User])
-        db.create_tables([User])
+        # db.drop_tables([User], safe=True)
+        db.create_tables([User], safe=True)
