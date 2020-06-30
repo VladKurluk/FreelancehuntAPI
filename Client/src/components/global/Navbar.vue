@@ -19,7 +19,7 @@
       </b-navbar-dropdown>
     </template>
 
-    <template slot="end">
+    <template slot="end" v-if="$store.getters.loggedIn">
       <b-navbar-item tag="div">
         <div class="buttons">
           <router-link :to="{ path: '/register' }" class="button is-primary">
@@ -29,11 +29,35 @@
         </div>
       </b-navbar-item>
     </template>
+    <template slot="end" v-else>
+      <b-navbar-dropdown :label="userName !== '' ? userName : 'Пользователь'">
+        <b-navbar-item tag="router-link" :to="{ path: '/test' }">Test protected route</b-navbar-item>
+        <b-navbar-item tag="router-link" :to="{ path: '/' }">2</b-navbar-item>
+      </b-navbar-dropdown>
+      <b-navbar-item tag="div">
+        <div class="buttons">
+          <button @click="logout" class="button is-primary">
+            <strong>Выход</strong>
+          </button>
+        </div>
+      </b-navbar-item>
+    </template>
   </b-navbar>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
-  data: () => ({})
+  data: () => ({}),
+  methods: {
+    ...mapActions('auth', [
+      'logout'
+    ])
+  },
+  computed: {
+    ...mapState('auth', [
+      'userName'
+    ])
+  }
 }
 </script>

@@ -1,4 +1,4 @@
-import { axiosParserInst } from '@/utils/http.js'
+import { axiosParserInst } from '@/services/http.js'
 
 export default {
   state: {

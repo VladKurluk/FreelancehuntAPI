@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import parser from './parser'
+import auth from './auth'
+// import parser from './parser'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    parser
+    auth
+    // parser
   }
 })

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { axiosInst } from '@/utils/http.js'
+import { axiosInst } from '@/services/http.js'
 export default {
   name: 'skills',
   data: () => ({

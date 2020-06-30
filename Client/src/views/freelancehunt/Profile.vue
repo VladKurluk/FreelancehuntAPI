@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { axiosInst } from '@/utils/http.js'
+import { axiosInstance } from '@/services/http.js'
 import FeedList from '@/components/Feed'
 
 export default {
@@ -52,7 +52,7 @@ export default {
   }),
   methods: {
     async getProfileData () {
-      await axiosInst.get('curent_profile')
+      await axiosInstance.get('/curent_profile')
         .then(response => (this.data = response.data))
     }
   },

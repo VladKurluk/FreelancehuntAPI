@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { axiosInst } from '@/utils/http.js'
+import { axiosInstance } from '@/services/http.js'
 
 export default {
   name: 'FeedList',
@@ -77,7 +77,7 @@ export default {
   }),
   methods: {
     async getFeedData () {
-      await axiosInst.get('my_feed')
+      await axiosInstance.get('/my_feed')
         .then(response => {
           if (response.data.data) {
             this.feedList = response.data.data

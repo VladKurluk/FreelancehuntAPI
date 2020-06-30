@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { axiosInst } from '@/utils/http.js'
+// import { axiosInst } from '@/services/http.js'
 import skills from '@/components/SkillList'
 
 export default {
