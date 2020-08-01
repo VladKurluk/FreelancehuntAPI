@@ -30,7 +30,7 @@
       </b-navbar-item>
     </template>
     <template slot="end" v-else>
-      <b-navbar-dropdown :label="userName !== '' ? userName : 'Пользователь'">
+      <b-navbar-dropdown :label="setUserName">
         <b-navbar-item tag="router-link" :to="{ path: '/test' }">Test protected route</b-navbar-item>
         <b-navbar-item tag="router-link" :to="{ path: '/' }">2</b-navbar-item>
       </b-navbar-dropdown>
@@ -57,7 +57,10 @@ export default {
   computed: {
     ...mapState('auth', [
       'userName'
-    ])
+    ]),
+    setUserName () {
+      return localStorage.getItem('user_name')
+    }
   }
 }
 </script>

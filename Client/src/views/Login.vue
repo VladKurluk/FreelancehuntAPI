@@ -3,27 +3,30 @@
     <form class="card auth-card" @submit.prevent="submitHandler">
       <h1 class="title is-3">Вход в аккаунт</h1>
       <!-- Email -->
-      <b-field label="Email"
+      <b-field
+        label="Email"
         :label-position="labelPosition"
         :type="(($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)) ? 'is-danger' : ''"
-        :message="(($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)) ? 'Не корректный Email' : ''">
-        <b-input
-          type="text"
-          :use-html5-validation="false"
-          v-model.trim="email"
-          maxlength="30">
-        </b-input>
+        :message="(($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)) ? 'Не корректный Email' : ''"
+      >
+        <b-input type="text" :use-html5-validation="false" v-model.trim="email" maxlength="30"></b-input>
       </b-field>
       <!-- Пароль -->
-      <b-field label="Пароль"
+      <b-field
+        label="Пароль"
         :label-position="labelPosition"
         :type="(($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)) ? 'is-danger' : ''"
         :message="(($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)) ? `Поле должно содержать не менее ${$v.password.$params.minLength.min} символов. Введено ${password.length} символов. ` : ''"
-        >
+      >
         <b-input v-model="password" type="password" maxlength="30" password-reveal></b-input>
       </b-field>
-      <b-button tag="button" :loading="loading" native-type="submit" class="button is-primary">Войти</b-button>
-      <hr/>
+      <b-button
+        tag="button"
+        :loading="loading"
+        native-type="submit"
+        class="button is-primary button_auth"
+      >Войти</b-button>
+      <hr />
       <p class="center">
         Еще нет аккаунта?
         <router-link to="/register">Зарегистрировать!</router-link>
@@ -68,7 +71,9 @@ export default {
 
 <style lang="scss">
 .auth-card {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 4px;
 }

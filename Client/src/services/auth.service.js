@@ -36,6 +36,7 @@ const AuthService = {
 
       TokenService.saveToken(response.data.access_token)
       TokenService.saveRefreshToken(response.data.refresh_token)
+      TokenService.saveUserName(response.data.username)
       AxiosService.setHeader()
 
       // Монтирование Axios перехватчика запросов
@@ -73,6 +74,7 @@ const AuthService = {
   logout () {
     TokenService.removeToken()
     TokenService.removeRefreshToken()
+    TokenService.removeUserName()
     AxiosService.removeHeader()
 
     // Отмонтирование Axios перехватчика запросов

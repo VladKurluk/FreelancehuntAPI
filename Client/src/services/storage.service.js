@@ -3,6 +3,7 @@
 */
 const TOKEN_KEY = 'access_token'
 const REFRESH_TOKEN_KEY = 'refresh_token'
+const USER_NAME = 'user_name'
 
 /**
  * Сохранение, удаление и доступ к токенам, которые храняться в localStorage.
@@ -30,6 +31,14 @@ const TokenService = {
 
   removeRefreshToken () {
     localStorage.removeItem(REFRESH_TOKEN_KEY)
+  },
+
+  saveUserName (name) {
+    localStorage.setItem(USER_NAME, name)
+  },
+
+  removeUserName () {
+    localStorage.removeItem(USER_NAME)
   }
 
 }

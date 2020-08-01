@@ -34,7 +34,7 @@
         tag="button"
         :loading="loading"
         native-type="submit"
-        class="button is-primary"
+        class="button is-primary button_auth"
       >Зарегистрироваться</b-button>
       <hr />
       <p class="center">
@@ -84,7 +84,9 @@ export default {
 
 <style lang="scss">
 .auth-card {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 4px;
 }

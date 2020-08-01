@@ -80,5 +80,4 @@ class AuthTestToken(Resource):
     @jwt_required
     def get(self):
         username = get_jwt_identity()
-        print('class AuthTestToken', username)
         return {'Auth': "Authorisation is ok"}, 200
