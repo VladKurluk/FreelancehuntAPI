@@ -58,10 +58,12 @@ npm run lint
 по которому осуществляеться доступ к [Freelancehunt API 2.0](https://apidocs.freelancehunt.com/?version=latest).  
 Чтобы получить токен, зарегистрируйтесь на бирже и перейдите по [ссылке для получения персонального токена](https://freelancehunt.com/my/api).
 
-А дальше нужно создать в корне проекта `Server` файл `.env` (показано на картинке) и поместить туда сгенерированный биржей токен в таком виде
+А дальше нужно создать в корне проекта `Server` файл `.env` (показано на картинке) и поместить туда сгенерированный биржей токен, а также секретный ключ (это строка) для работы Flask-JWT-Extended.
 
 ```
+#.env
 FREELANCEHUNT_API_KEY=ваш токен
+JWT_SECRET_KEY = 'ваш_секретеый_ключ'
 ```
 
 ![](https://github.com/VladKurluk/FreelancehuntAPI/blob/master/token.png)

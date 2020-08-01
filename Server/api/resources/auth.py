@@ -64,7 +64,7 @@ class AuthLogin(Resource):
             return {
                        'access_token': access_token,
                        'refresh_token': create_refresh_token(identity=str(user.id)),
-                        'username': user.name
+                       'username': user.name
                    }, 200
         except DoesNotExist as e:
             raise UserDoesNotExist
@@ -80,5 +80,5 @@ class AuthTestToken(Resource):
     @jwt_required
     def get(self):
         username = get_jwt_identity()
-        print(username)
+        print('class AuthTestToken', username)
         return {'Auth': "Authorisation is ok"}, 200

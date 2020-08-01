@@ -3,7 +3,7 @@
 """
 
 from flask import Flask
-from database import create_tables
+from database import db, create_tables
 from config import config
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
@@ -15,6 +15,17 @@ def create_app(env):
     app = Flask(__name__)
 
     create_tables()
+
+    # Открываем базу перед любым запросом.
+    @app.before_request
+    def _db_connect():
+        db.connect()
+
+    # Закрываем базу после запроса.
+    @app.teardown_request
+    def _db_close(exc):
+        if not db.is_closed():
+            db.close()
 
     app.config.from_object(config[env])
 
