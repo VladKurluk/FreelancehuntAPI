@@ -30,3 +30,5 @@ Server/freelance_api/token.py
 
 # Database
 parser_app.db
+Server/parser_app.db-shm
+Server/parser_app.db-wal

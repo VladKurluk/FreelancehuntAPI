@@ -69,12 +69,14 @@ class AuthLogin(Resource):
         except DoesNotExist as e:
             raise UserDoesNotExist
 
+
 class AuthRefreshToken(Resource):
     @jwt_refresh_token_required
     def post(self):
         current_user = get_jwt_identity()
         expires = datetime.timedelta(minutes=5)
         return {'access_token': create_access_token(identity=current_user, expires_delta=expires)}, 200
+
 
 class AuthTestToken(Resource):
     @jwt_required
