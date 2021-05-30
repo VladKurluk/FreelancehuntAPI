@@ -16,7 +16,7 @@
 | Node.js           | 13.5.0  | Python            | 3.6.9   | Ubuntu 18.04.4 |
 | npm               | 6.13.4  | Flask             | 1.1.1   |                |
 | Vue.js            | 2.6.11  | Flask-RESTful     | 0.3.8   |                |
-| Buefy             | 0.8.12  | ORM Peewee        | 3.13.3  |                |
+| Buefy             | 0.9.7   | ORM Peewee        | 3.13.3  |                |
 
 ## Работа с клиентской частью
 
