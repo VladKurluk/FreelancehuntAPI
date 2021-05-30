@@ -44,12 +44,12 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "profile" */ '../views/freelancehunt/Profile.vue')
   },
-  /* {
+  {
     path: '/all_frelancers',
     name: 'frelancersList',
     meta: { layout: 'main' },
-    component: () => import(/* webpackChunkName: "frelancersList" * '../views/freelancehunt/FreelancersList.vue')
-  }, */
+    component: () => import(/* webpackChunkName: "frelancersList" */ '../views/freelancehunt/FreelancersList.vue')
+  },
   /* {
     path: '/freelance_ua',
     name: 'parser',

@@ -39,7 +39,7 @@
 
 <script>
 import { axiosInstance } from '@/services/http.js'
-import FeedList from '@/components/Feed'
+import FeedList from '@/components/freelancehunt/Feed'
 
 export default {
   components: {

@@ -1,8 +1,8 @@
 <template>
   <div class="column is-6 feed">
-    <div class="card" v-if="feedList.length !== 0">
-      <h3 class="title is-3">Моя лента</h3>
-      <div class="box" v-for="(feed) in feedList" :key="feed.id">
+    <div class="card" v-if="feedList.length">
+      <h4 class="title is-3">Последние 40 проектов.</h4>
+      <div class="box" v-for="feed in feedList" :key="feed.id">
         <article class="media">
           <div class="media-left" v-if="feed.attributes.from">
             <figure class="image is-64x64">
@@ -12,9 +12,14 @@
           <div class="media-content">
             <div class="content">
               <p>
-                <strong v-if="feed.attributes.from">{{`${feed.attributes.from.first_name} ${feed.attributes.from.last_name} `}}</strong>
-                <small v-if="feed.attributes.from">@{{`${feed.attributes.from.login} `}}</small>
-                <small>{{ feed.attributes.created_at | time('time') }}</small>
+                <a
+                  v-if="feed.attributes.from"
+                  :href="feed.attributes.from.self"
+                  target="_blank"
+                >
+                  Заказчик: {{ `${feed.attributes.from.first_name} ${feed.attributes.from.last_name}` }}
+                </a>
+                <small>Проект добавлен: {{ feed.attributes.created_at | time('time') }}</small>
                 <br>
                 {{feed.attributes.message | getProjectDescription}}
                 <br>

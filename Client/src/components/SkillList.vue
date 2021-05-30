@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { axiosInst } from '@/services/http.js'
+import { axiosInstance } from '@/services/http.js'
 export default {
   name: 'skills',
   data: () => ({
@@ -21,7 +21,7 @@ export default {
   }),
   methods: {
     async getSkills () {
-      await axiosInst.get('skills')
+      await axiosInstance.get('skills')
         .then(response => (this.data = response.data.data))
     },
     setSkill (val) {

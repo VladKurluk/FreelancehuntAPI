@@ -93,7 +93,7 @@
 </template>
 
 <script>
-// import { axiosInst } from '@/services/http.js'
+import { axiosInstance } from '@/services/http.js'
 import skills from '@/components/SkillList'
 
 export default {
@@ -120,12 +120,12 @@ export default {
   }),
   methods: {
     async getProfileData () {
-      await axiosInst.get('freelancers')
+      await axiosInstance.get('freelancers')
         .then(response => (this.data = response.data))
     },
     async getFrelancersBySkill (data) {
       this.skillId = data
-      await axiosInst.post('freelancers', {
+      await axiosInstance.post('freelancers', {
         id: data,
         page: 1
       })
@@ -133,7 +133,7 @@ export default {
     },
     async setPage (value) {
       this.isLoading = true
-      await axiosInst.post('freelancers', {
+      await axiosInstance.post('freelancers', {
         id: this.skillId,
         page: value
       })
